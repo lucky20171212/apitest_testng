@@ -59,9 +59,9 @@ public class ExcelToMapUtils {
 	}
 
 	private static Object getValue(Cell cell) {
-		if (cell.getCellTypeEnum() == CellType.BOOLEAN) {
+		if (cell.getCellType() == CellType.BOOLEAN) {
 			return cell.getBooleanCellValue();
-		} else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+		} else if (cell.getCellType() == CellType.NUMERIC) {
 			NumberFormat nf = NumberFormat.getInstance();
 			return nf.format(cell.getNumericCellValue()); 
 			//return cell.getNumericCellValue();

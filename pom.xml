@@ -53,11 +53,6 @@
 		<!-- <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc6</artifactId> 
 			<version>11.2.0.1.0</version> </dependency> -->
 
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>12.1.0.1-atlassian-hosted</version>
-		</dependency>
 
 		<!-- 连接池 -->
 		<dependency>
@@ -152,7 +147,7 @@
 
 
 	<build>
-		<finalName>apitest</finalName>
+		<finalName>apitest-testng</finalName>
 
 		<resources>
 			<resource>
