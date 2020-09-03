@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>apitest_testng</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.testfan</groupId>
+        <artifactId>apitest</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+
+        <properties>
+            <!-- maven编译时的编码格式 -->
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <!-- 测试报告的编码格式 -->
+            <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+            <!-- jdk的版本 -->
+            <java.version>1.8</java.version>
+            <lombok.version>1.18.12</lombok.version>
+            <excel4j.version>3.0.0</excel4j.version>
+            <httpclient.version>4.5.12</httpclient.version>
+            <testng.version>7.1.0</testng.version>
+            <commons.lang3.version>3.10</commons.lang3.version>
+            <commons.io.version>2.7</commons.io.version>
+            <fastjson.version>1.2.72</fastjson.version>
+            <common.dbutils.version>1.7</common.dbutils.version>
+            <aviator.version>5.1.2</aviator.version>
+            <mysql.connection.version>5.1.47</mysql.connection.version>
+            <c3p0.version>0.9.5.5</c3p0.version>
+            <jackson.dataformate.xml>2.11.1</jackson.dataformate.xml>
+            <email.version>1.5</email.version>
+            <commons.config.version>1.10</commons.config.version>
+            <commons.codec.version>1.14</commons.codec.version>
+            <log4j.version>2.11.1</log4j.version>
+        </properties>
+
+        <dependencies>
+            <!-- slf4j 规范定义和桥架 -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>1.7.25</version>
+            </dependency>
+            <!-- log4j2 实现 -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <!-- MD5加密 -->
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons.codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-configuration</groupId>
+                <artifactId>commons-configuration</artifactId>
+                <version>${commons.config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-email</artifactId>
+                <version>${email.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
+                <version>${jackson.dataformate.xml}</version>
+            </dependency>
+            <!-- 引入本地jar包 -->
+            <dependency>
+                <groupId>com.github</groupId>
+                <artifactId>checkpoint</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <scope>system</scope>
+                <systemPath>${basedir}/libs/checkpoint.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.mchange</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>${c3p0.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connection.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.googlecode.aviator</groupId>
+                <artifactId>aviator</artifactId>
+                <version>${aviator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-dbutils</groupId>
+                <artifactId>commons-dbutils</artifactId>
+                <version>${common.dbutils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.crab2died</groupId>
+                <artifactId>Excel4J</artifactId>
+                <version>${excel4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>${testng.version}</version>
+                <!-- <scope>test</scope> -->
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.13</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+        <build>
+            <!-- 自定义工程名称 -->
+            <finalName>apitest_testng</finalName>
+
+            <resources>
+                <resource>
+                    <directory>src/main/resources</directory>
+                </resource>
+                <!-- copy excel文件 测试数据文件 -->
+                <resource>
+                    <directory>${basedir}/data</directory>
+                    <targetPath>${basedir}/target/data/</targetPath>
+                    <includes>
+                        <include>*.xlsx</include>
+                        <include>*.txt</include>
+                        <include>*.csv</include>
+                        <include>*.json</include>
+                    </includes>
+                </resource>
+            </resources>
+
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+
+                <!-- 用maven命令执行TestNG案例，控制台乱码，下面的配置解决了控制台乱码 -->
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.7.2</version>
+                    <configuration>
+                        <forkMode>once</forkMode>
+                        <argLine>-Dfile.encoding=UTF-8</argLine>
+                    </configuration>
+                </plugin>
+                <!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>
+                    <version>3.0.1</version> <executions> <execution> <id>attach-sources</id>
+                    <phase>verify</phase> <goals> <goal>jar-no-fork</goal> </goals> </execution>
+                    </executions> </plugin> -->
+
+                <!-- maven jar插件扩展 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.4</version>
+                    <!-- lib依赖 包和main方法关系通过 MANIFEST.MF配置文件维护 -->
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <classpathPrefix>lib/</classpathPrefix>
+                                <!-- 程序运行的主方法 全类名 -->
+                                <mainClass>com.testfan.main.APITestThread</mainClass>
+                            </manifest>
+                            <!-- 自定义包 写入MANIFEST.MF -->
+                            <manifestEntries>
+                                <Class-Path>lib/checkpoint-0.0.1-SNAPSHOT.jar</Class-Path>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <!-- 依赖包处理 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.8</version>
+                    <executions>
+                        <execution>
+                            <id>copy-dependencies</id>
+                            <phase>prepare-package</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                                <overWriteReleases>false</overWriteReleases>
+                                <overWriteSnapshots>false</overWriteSnapshots>
+                                <overWriteIfNewer>true</overWriteIfNewer>
+                                <!-- 默认配置 compile 所有编译运行的包 除了test -->
+                                <includeScope>compile</includeScope>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    </project>
+
+</project>
