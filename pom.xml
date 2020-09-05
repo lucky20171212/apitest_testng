@@ -107,6 +107,20 @@
 			<artifactId>jackson-dataformat-xml</artifactId>
 			<version>2.9.8</version>
 		</dependency>
+		<!--  注意对应版本-->
+
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-testng</artifactId>
+			<version>2.13.3</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.testng</groupId>
+					<artifactId>testng</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -245,11 +259,14 @@
 
 					<!--为了解决在jenkins maven执行test 报告乱码问题，编码格式设置为UTF-8-->
 					<argLine>-Dfile.encoding=UTF-8</argLine>
+
+					<argLine>-Dfile.encoding=UTF-8 -Xmx1024m -XX:MaxPermSize=256m</argLine>
+					<!-- allure 支持  -->
 					<argLine>
 						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
 					</argLine>
-					<argLine>-Dfile.encoding=UTF-8 -Xmx1024m -XX:MaxPermSize=256m</argLine>
-
+					<!--报告生成地址-->
+					<workingDirectory>target/</workingDirectory>
 					<properties>
 						<property>
 							<name>usedefaultlisteners</name>
